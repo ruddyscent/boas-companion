@@ -1,0 +1,15 @@
+This repository uses different licenses for different kinds of material.
+
+Unless otherwise noted:
+
+1. Original explanatory text, summaries, and solution writeups are licensed under
+   the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+   License (CC BY-NC-SA 4.0). See LICENSES/CC-BY-NC-SA-4.0.txt.
+
+2. Source code, including plotting and computational scripts, is licensed under
+   the MIT License. See LICENSES/MIT.txt.
+
+The textbook, problem statements, figures, tables, cover images, and any other
+third-party material are not licensed by this repository. They remain the
+property of their respective copyright holders.
+
