@@ -1,108 +1,121 @@
 # 1-5. Testing Series for Convergence; the Preliminary Test
 
-> **예비판정(preliminary test)**: $\lim_{n\to\infty} a_n \ne 0$ (또는 극한이 존재하지 않음)이면 급수는 **발산**한다.
-> 반대로 $\lim a_n = 0$ 인 경우는 **판정 불가**(추가 판정 필요)이며, 결코 "수렴"이라 단정해서는 안 된다.
-> 아래 1–10번에서는 각 급수의 일반항 $a_n$ 의 극한을 계산하여 둘 중 어느 결론에 도달하는지를 보인다.
+> **Preliminary test**: if $a_n$ does not tend to 0, then $\sum a_n$ diverges. If $a_n\to 0$, the test is inconclusive.
 
-## 문제 1. 절댓값이 1로 수렴하는 교대급수 — 발산 확정
-
-급수 $\dfrac{1}{2} - \dfrac{4}{5} + \dfrac{9}{10} - \dfrac{16}{17} + \dfrac{25}{26} - \dfrac{36}{37} + \cdots$ 의 일반항은
+### Problem 1. Terms Do Not Tend to 0
 
 $$
-a_n = (-1)^{n+1}\,\frac{n^{2}}{n^{2}+1}.
+a_n=(-1)^{n+1}\frac{n^2}{n^2+1},
+\qquad
+|a_n|\to 1.
 $$
 
-$|a_n| = \dfrac{n^{2}}{n^{2}+1} \to 1$ 이므로 $a_n$ 은 0에 가까워지지 않고 $\pm 1$ 부근을 진동한다. 예비판정에 의해 **발산**.
+The terms do not approach 0, so the series **diverges**.
 
-## 문제 2. 분자가 $\sqrt{n}$ 위계인 천천히 감쇠하는 양항급수 — 추가 판정 필요
-
-급수 $\sqrt{2} + \dfrac{\sqrt{3}}{2} + \dfrac{\sqrt{4}}{3} + \dfrac{\sqrt{5}}{4} + \dfrac{\sqrt{6}}{5} + \cdots$ 의 일반항은
+### Problem 2. Preliminary Test Is Inconclusive
 
 $$
-a_n = \frac{\sqrt{n+1}}{n} = \sqrt{\frac{1}{n}+\frac{1}{n^{2}}}\;\xrightarrow[n\to\infty]{}\;0.
+a_n=\frac{\sqrt{n+1}}{n}
+=\sqrt{\frac{1}{n}+\frac{1}{n^2}}
+\to 0.
 $$
 
-예비판정으로는 결정 불가. **추가 판정 필요.** (사실 $a_n \sim 1/\sqrt n$ 이므로 $p$-급수 $p=1/2 \le 1$ 로 발산하지만, 그 결론은 예비판정의 몫이 아니다.)
+The preliminary test gives no conclusion. A later comparison would show divergence, since $a_n\sim 1/\sqrt n$.
 
-## 문제 3. 분모 차수가 더 큰 유리식 — 추가 판정 필요
-
-$$
-a_n = \frac{n+3}{n^{2}+10n} = \frac{1+3/n}{n(1+10/n)} \;\xrightarrow[n\to\infty]{}\; 0.
-$$
-
-예비판정으로는 결정 불가. **추가 판정 필요.** (실제로는 $a_n \sim 1/n$ 이므로 발산.)
-
-## 문제 4. 비율이 1에 가까워지는 또다른 교대급수 — 발산 확정
+### Problem 3. Preliminary Test Is Inconclusive
 
 $$
-|a_n| = \frac{n^{2}}{(n+1)^{2}} = \left(1-\frac{1}{n+1}\right)^{\!2} \;\xrightarrow[n\to\infty]{}\; 1.
+a_n=\frac{n+3}{n^2+10n}
+=\frac{1+3/n}{n(1+10/n)}
+\to 0.
 $$
 
-따라서 $a_n = (-1)^{n}\,n^{2}/(n+1)^{2}$ 는 0이 아니라 $\pm 1$ 부근을 진동. **발산**.
+The preliminary test gives no conclusion. In fact, $a_n\sim 1/n$, so the series diverges.
 
-## 문제 5. 분자와 분모가 거의 같은 비 — 발산 확정
-
-$$
-a_n = \frac{n!}{n!+1} = \frac{1}{1+1/n!} \;\xrightarrow[n\to\infty]{}\; 1 \ne 0.
-$$
-
-예비판정에 의해 **발산**.
-
-## 문제 6. 인접한 계승의 비 — 조화급수 형태로 환원, 추가 판정 필요
+### Problem 4. Terms Do Not Tend to 0
 
 $$
-a_n = \frac{n!}{(n+1)!} = \frac{1}{n+1}\;\xrightarrow[n\to\infty]{}\; 0.
+|a_n|
+=\frac{n^2}{(n+1)^2}
+=\left(1-\frac{1}{n+1}\right)^2
+\to 1.
 $$
 
-예비판정으로는 결정 불가. **추가 판정 필요.** (사실은 조화급수의 꼬리이므로 발산.)
+Thus $a_n$ does not tend to 0. The series **diverges**.
 
-## 문제 7. 분모가 $n^{3/2}$ 위계인 교대급수 — 추가 판정 필요
-
-$$
-|a_n| = \frac{n}{\sqrt{n^{3}+1}} = \frac{1}{\sqrt{n+1/n^{2}}} \;\xrightarrow[n\to\infty]{}\; 0.
-$$
-
-예비판정으로는 결정 불가. **추가 판정 필요.** (이후 절에서 교대급수 판정으로 조건수렴이 보여진다.)
-
-## 문제 8. 로그가 분자에 있는 느린 감쇠 — 추가 판정 필요
+### Problem 5. Terms Tend to 1
 
 $$
-a_n = \frac{\ln n}{n}.
+a_n=\frac{n!}{n!+1}
+=\frac{1}{1+1/n!}
+\to 1\ne 0.
 $$
 
-로피탈(또는 $\ln n \ll n^{\varepsilon}$ 의 일반 사실)에 의해 $a_n \to 0$. 예비판정으로는 결정 불가. **추가 판정 필요.** (실제로는 $a_n > 1/n$ for $n \ge 3$ 이므로 비교판정으로 발산.)
+The series **diverges**.
 
-## 문제 9. 더 큰 지수가 분모를 지배 — 비가 1로 수렴, 발산 확정
-
-분자·분모를 $3^{n}$ 으로 나누면
+### Problem 6. Preliminary Test Is Inconclusive
 
 $$
-a_n = \frac{3^{n}}{2^{n}+3^{n}} = \frac{1}{(2/3)^{n}+1} \;\xrightarrow[n\to\infty]{}\; \frac{1}{0+1}=1 \ne 0.
+a_n=\frac{n!}{(n+1)!}
+=\frac{1}{n+1}
+\to 0.
 $$
 
-예비판정에 의해 **발산**.
+The preliminary test gives no conclusion. This is a harmonic tail, so the series actually diverges.
 
-## 문제 10. 1에 단조수렴하는 일반항 — 발산 확정
-
-$$
-a_n = 1 - \frac{1}{n^{2}} \;\xrightarrow[n\to\infty]{}\; 1 \ne 0.
-$$
-
-예비판정에 의해 **발산**.
-
-## 문제 11. 예비판정의 증명
-
-식 (4.6) $S_n - S_{n-1} = a_n$ 을 이용한다. 만약 급수 $\sum a_n$ 이 어떤 값 $S$ 로 수렴한다면, 정의상 $S_n \to S$ 이고 $S_{n-1}\to S$ 이므로
+### Problem 7. Preliminary Test Is Inconclusive
 
 $$
-\lim_{n\to\infty} a_n
-= \lim_{n\to\infty}(S_n - S_{n-1})
-= \lim_{n\to\infty} S_n - \lim_{n\to\infty} S_{n-1}
-= S - S = 0.
+|a_n|
+=\frac{n}{\sqrt{n^3+1}}
+=\frac{1}{\sqrt{n+1/n^2}}
+\to 0.
 $$
 
-이를 대우(contrapositive)로 표현하면
+The preliminary test gives no conclusion. This series is handled later by the alternating series test.
 
-> $\lim_{n\to\infty} a_n \ne 0$ (또는 존재하지 않음) $\Rightarrow$ $\sum a_n$ 은 발산.
+### Problem 8. Preliminary Test Is Inconclusive
 
-이것이 예비판정이다. 한편 그 역명제, 즉 "$\lim a_n = 0$ 이면 수렴"은 일반적으로 거짓이다(반례: 조화급수 $\sum 1/n$). 그렇기 때문에 예비판정은 **수렴을 결론지을 수 없고**, 오직 일반항이 0으로 가지 않을 때 발산을 단정하는 데에만 쓰인다.
+$$
+a_n=\frac{\ln n}{n}\to 0.
+$$
+
+The preliminary test gives no conclusion. Since $\ln n>1$ for $n\ge 3$, this series is larger than a harmonic tail and diverges.
+
+### Problem 9. Terms Tend to 1
+
+$$
+a_n=\frac{3^n}{2^n+3^n}
+=\frac{1}{(2/3)^n+1}
+\to 1.
+$$
+
+The series **diverges**.
+
+### Problem 10. Terms Tend to 1
+
+$$
+a_n=1-\frac{1}{n^2}\to 1.
+$$
+
+The series **diverges**.
+
+### Problem 11. Proof of the Preliminary Test
+
+If $\sum a_n$ converges to $S$, then its partial sums satisfy $S_n\to S$. Since
+
+$$
+a_n=S_n-S_{n-1},
+$$
+
+we get
+
+$$
+\lim_{n\to\infty}a_n
+=\lim_{n\to\infty}S_n-\lim_{n\to\infty}S_{n-1}
+=S-S=0.
+$$
+
+Therefore, if $a_n$ does not tend to 0, the series cannot converge.
+
+The converse is false: $1/n\to 0$, but $\sum 1/n$ diverges.

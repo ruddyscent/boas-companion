@@ -1,301 +1,534 @@
 # 1-6. Convergence Tests for Series of Positive Terms; Absolute Convergence
 
-> 본 절은 네 가지 판정법을 차례로 다룬다 — **비교판정(A)**, **적분판정(B)**, **비율판정(C)**, **특수 비교판정(D)**. 문제도 그 순서대로 묶여 있다.
+This section uses four tests:
 
----
+- **Comparison Test**
+- **Integral Test**
+- **Ratio Test**
+- **Special Comparison Test**
 
-## A. 비교판정 (Comparison Test) — 문제 1–6
+## A. Comparison Test: Problems 1-6
 
-## 문제 1. 계승이 지수를 결국 압도한다는 부등식 — 귀납법
+### Problem 1. Factorials Eventually Dominate Powers of 2
 
-기저: $4! = 24 > 16 = 2^{4}$. 귀납가정 $n!>2^{n}$ ($n\ge 4$)에서 $n+1$ 단계로 갈 때 $n!$ 은 $n+1$ 배($\ge 5$), $2^{n}$ 은 $2$ 배가 곱해지므로
+Base case: $4! = 24 > 16 = 2^{4}$.
 
-$$
-(n+1)! = (n+1)\cdot n! \;>\; (n+1)\cdot 2^{n} \;>\; 2\cdot 2^{n} = 2^{\,n+1}.
-$$
-
-따라서 모든 $n\ge 4$ 에서 $n!>2^{n}$.
-
-## 문제 2. 조화급수의 발산 — 이항분리 묶기로 비교
-
-힌트의 보조 급수는
+Assume $n!>2^{n}$ for some $n\ge 4$. Then
 
 $$
-1+\tfrac12 + (\tfrac14+\tfrac14) + (\tfrac18+\tfrac18+\tfrac18+\tfrac18) + (\text{8개 each } \tfrac{1}{16}) + \cdots
-= 1 + \tfrac12+\tfrac12+\tfrac12+\cdots
+(n+1)! = (n+1)n! > (n+1)2^{n} > 2\cdot 2^{n}=2^{n+1}.
 $$
 
-이며 부분합이 무한대로 발산한다. 한편 조화급수는
+Therefore $n!>2^{n}$ for all $n\ge 4$.
+
+### Problem 2. Harmonic Series
+
+Group the harmonic series in powers of 2:
 
 $$
-1 + \tfrac12 + (\tfrac13+\tfrac14) + (\tfrac15+\tfrac16+\tfrac17+\tfrac18) + \cdots
+1+\frac12+\left(\frac13+\frac14\right)
++\left(\frac15+\frac16+\frac17+\frac18\right)+\cdots.
 $$
 
-각 묶음의 항이 보조 급수의 대응 항보다 같거나 크다($\tfrac13>\tfrac14,\;\tfrac14=\tfrac14$ 이므로 $\tfrac13+\tfrac14 > \tfrac14+\tfrac14 = \tfrac12$ 등). 따라서 비교판정에 의해 조화급수도 발산.
-
-## 문제 3. 역제곱급수의 수렴 — 같은 방식의 묶기
-
-$2^{k}$ 개씩 묶으면 $k$번째 묶음의 모든 항은 $\le 1/(2^{k})^{2} = 1/4^{k}$ 이므로
+Each group is at least $\frac12$:
 
 $$
-\sum_{n=2^{k}}^{2^{k+1}-1}\frac{1}{n^{2}} \;\le\; 2^{k}\cdot\frac{1}{4^{k}} = \frac{1}{2^{k}}.
+\frac13+\frac14>\frac14+\frac14=\frac12,\qquad
+\frac15+\cdots+\frac18>4\cdot\frac18=\frac12.
 $$
 
-따라서 $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^{2}} \le \sum_{k=0}^{\infty}\frac{1}{2^{k}} = 2$. 유한한 상계가 있으므로 수렴.
+Since infinitely many groups each contribute at least $\frac12$, the harmonic series **diverges**.
 
-## 문제 4. 등비급수와의 비교
+### Problem 3. Reciprocal-Square Series
 
-(a) $\displaystyle\sum_{n=1}^{\infty}\frac{1}{2^{n}+3^{n}}$ : 분모 $\ge 3^{n}$ 이므로 $a_n \le 1/3^{n}$. $\sum 1/3^{n}$ (등비, $r=1/3$) 이 수렴하므로 **수렴**.
-
-(b) $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n\,2^{n}}$ : $1/(n\,2^{n})\le 1/2^{n}$, 등비급수와 비교해 **수렴**.
-
-## 문제 5. 조화급수와의 비교
-
-(a) $\displaystyle\sum_{n=1}^{\infty}\frac{1}{\sqrt{n}}$ : $n\ge\sqrt{n}$ 이므로 $1/\sqrt{n}\ge 1/n$. 조화급수 발산을 이용해 **발산**. (힌트: $n>\sqrt{n}$.)
-
-(b) $\displaystyle\sum_{n=2}^{\infty}\frac{1}{\ln n}$ : $\ln n < n$ 이므로 $1/\ln n > 1/n$. **발산**.
-
-## 문제 6. 자릿수 묶기로 본 조화급수의 발산
-
-자릿수 $d$ 인 자연수는 정확히 $9\cdot 10^{d-1}$ 개. 그 자연수들의 역수는 모두 $\ge 1/10^{d}$. 따라서 묶음별 합은
+Group terms with $2^{k}\le n\le 2^{k+1}-1$. There are $2^{k}$ terms, and each is at most $1/(2^{k})^{2}$:
 
 $$
-\underbrace{\tfrac{1}{1}+\cdots+\tfrac{1}{9}}_{9\text{개},\ \ge 9/10}
-+\underbrace{\tfrac{1}{10}+\cdots+\tfrac{1}{99}}_{90\text{개},\ \ge 9/10}
-+\underbrace{\tfrac{1}{100}+\cdots+\tfrac{1}{999}}_{900\text{개},\ \ge 9/10}+\cdots.
+\sum_{n=2^{k}}^{2^{k+1}-1}\frac{1}{n^{2}}
+\le 2^{k}\cdot\frac{1}{4^{k}}
+=\frac{1}{2^{k}}.
 $$
 
-각 묶음이 $9/10$ 이상이고 묶음의 개수는 무한이므로 부분합 $\to\infty$. **발산**.
-
----
-
-## B. 적분판정 (Integral Test) — 문제 7–17
-
-> 양의 단조감소 함수 $f$ 에 대하여 $\sum_{n\ge a} f(n)$ 과 $\int_{a}^{\infty} f(x)\,dx$ 는 **수렴/발산이 같다.**
-
-## 문제 7. 로그가 곱해진 분모 — $\ln\ln x$ 가 등장하며 발산
+Thus
 
 $$
-\int_{2}^{\infty}\frac{dx}{x\ln x} = \bigl[\ln(\ln x)\bigr]_{2}^{\infty} = \infty.\quad\text{**발산**.}
+\sum_{n=1}^{\infty}\frac{1}{n^{2}}
+\le \sum_{k=0}^{\infty}\frac{1}{2^{k}}=2,
 $$
 
-## 문제 8. 본질적으로 조화급수인 유리식 — 발산
+so the series **converges**.
+
+### Problem 4. Compare with Geometric Series
+
+(a)
 
 $$
-\int_{1}^{\infty}\frac{x\,dx}{x^{2}+4} = \tfrac{1}{2}\bigl[\ln(x^{2}+4)\bigr]_{1}^{\infty} = \infty.\quad\text{**발산**.}
+\frac{1}{2^{n}+3^{n}}\le \frac{1}{3^{n}}.
 $$
 
-## 문제 9. 이차식의 역수 — 부분분수와 적분판정
+Since $\sum 1/3^{n}$ converges, $\displaystyle\sum_{n=1}^{\infty}\frac{1}{2^{n}+3^{n}}$ **converges**.
 
-$\dfrac{1}{x^{2}-4} = \tfrac{1}{4}\!\left(\dfrac{1}{x-2}-\dfrac{1}{x+2}\right)$ 이므로
-
-$$
-\int_{3}^{\infty}\frac{dx}{x^{2}-4} = \tfrac{1}{4}\Bigl[\ln\tfrac{x-2}{x+2}\Bigr]_{3}^{\infty}
-= \tfrac{1}{4}\bigl(0-\ln\tfrac{1}{5}\bigr) = \tfrac{\ln 5}{4}<\infty.\quad\text{**수렴**.}
-$$
-
-## 문제 10. 지수 치환으로 $\arctan$ 적분으로 환원
-
-$u=e^{x}$ 로 치환하면
+(b)
 
 $$
-\int_{1}^{\infty}\frac{e^{x}\,dx}{e^{2x}+9} = \int_{e}^{\infty}\frac{du}{u^{2}+9}
-= \tfrac{1}{3}\bigl[\arctan(u/3)\bigr]_{e}^{\infty}
-= \tfrac{1}{3}\bigl(\tfrac{\pi}{2}-\arctan\tfrac{e}{3}\bigr)<\infty.\quad\text{**수렴**.}
+\frac{1}{n2^{n}}\le \frac{1}{2^{n}}.
 $$
 
-## 문제 11. 로그 치환으로 $p=3/2$ 적분으로 환원
+Since $\sum 1/2^{n}$ converges, $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n2^{n}}$ **converges**.
 
-$u=1+\ln x$, $du=dx/x$ :
+### Problem 5. Compare with the Harmonic Series
+
+(a) Since $\sqrt n\le n$ for $n\ge 1$,
+
+$$
+\frac{1}{\sqrt n}\ge \frac{1}{n}.
+$$
+
+So $\displaystyle\sum_{n=1}^{\infty}\frac{1}{\sqrt n}$ **diverges**.
+
+(b) Since $\ln n<n$ for $n\ge 2$,
+
+$$
+\frac{1}{\ln n}>\frac{1}{n}.
+$$
+
+So $\displaystyle\sum_{n=2}^{\infty}\frac{1}{\ln n}$ **diverges**.
+
+### Problem 6. Harmonic Series by Number of Digits
+
+There are $9\cdot 10^{d-1}$ integers with $d$ digits, and each reciprocal is at least $1/10^{d}$. Therefore each digit block contributes at least
+
+$$
+9\cdot 10^{d-1}\cdot\frac{1}{10^{d}}=\frac{9}{10}.
+$$
+
+Infinitely many blocks each contribute at least $9/10$, so the harmonic series **diverges**.
+
+## B. Integral Test: Problems 7-17
+
+For a positive decreasing function $f$, the series $\sum f(n)$ and the improper integral $\int f(x)\,dx$ have the same convergence behavior.
+
+### Problem 7
+
+$$
+\int_{2}^{\infty}\frac{dx}{x\ln x}
+=\bigl[\ln(\ln x)\bigr]_{2}^{\infty}
+=\infty.
+$$
+
+Therefore the series **diverges**.
+
+### Problem 8
+
+$$
+\int_{1}^{\infty}\frac{x\,dx}{x^{2}+4}
+=\frac12\bigl[\ln(x^{2}+4)\bigr]_{1}^{\infty}
+=\infty.
+$$
+
+Therefore the series **diverges**.
+
+### Problem 9
+
+Use
+
+$$
+\frac{1}{x^{2}-4}
+=\frac14\left(\frac{1}{x-2}-\frac{1}{x+2}\right).
+$$
+
+Then
+
+$$
+\int_{3}^{\infty}\frac{dx}{x^{2}-4}
+=\frac14\Bigl[\ln\frac{x-2}{x+2}\Bigr]_{3}^{\infty}
+=\frac{\ln 5}{4}<\infty.
+$$
+
+Therefore the series **converges**.
+
+### Problem 10
+
+Let $u=e^{x}$, so $du=e^{x}\,dx$:
+
+$$
+\int_{1}^{\infty}\frac{e^{x}\,dx}{e^{2x}+9}
+=\int_{e}^{\infty}\frac{du}{u^{2}+9}
+=\frac13\bigl[\arctan(u/3)\bigr]_{e}^{\infty}<\infty.
+$$
+
+Therefore the series **converges**.
+
+### Problem 11
+
+Let $u=1+\ln x$, so $du=dx/x$:
 
 $$
 \int_{1}^{\infty}\frac{dx}{x(1+\ln x)^{3/2}}
-= \int_{1}^{\infty}\frac{du}{u^{3/2}}
-= \bigl[-2u^{-1/2}\bigr]_{1}^{\infty} = 2<\infty.\quad\text{**수렴**.}
+=\int_{1}^{\infty}u^{-3/2}\,du
+=\bigl[-2u^{-1/2}\bigr]_{1}^{\infty}
+=2.
 $$
 
-## 문제 12. 분모가 거듭제곱된 유리식 — 적분판정으로 수렴
+Therefore the series **converges**.
+
+### Problem 12
 
 $$
-\int_{1}^{\infty}\frac{x\,dx}{(x^{2}+1)^{2}} = \Bigl[-\tfrac{1}{2(x^{2}+1)}\Bigr]_{1}^{\infty} = \tfrac{1}{4}.\quad\text{**수렴**.}
+\int_{1}^{\infty}\frac{x\,dx}{(x^{2}+1)^{2}}
+=\Bigl[-\frac{1}{2(x^{2}+1)}\Bigr]_{1}^{\infty}
+=\frac14.
 $$
 
-## 문제 13. 분자·분모 차수 차가 1 — 본질적으로 조화급수, 발산
+Therefore the series **converges**.
+
+### Problem 13
 
 $$
-\int_{1}^{\infty}\frac{x^{2}\,dx}{x^{3}+1} = \tfrac{1}{3}\bigl[\ln(x^{3}+1)\bigr]_{1}^{\infty}=\infty.\quad\text{**발산**.}
+\int_{1}^{\infty}\frac{x^{2}\,dx}{x^{3}+1}
+=\frac13\bigl[\ln(x^{3}+1)\bigr]_{1}^{\infty}
+=\infty.
 $$
 
-## 문제 14. 분모가 $n$ 위계의 제곱근 — 발산
+Therefore the series **diverges**.
+
+### Problem 14
 
 $$
-\int_{1}^{\infty}\frac{dx}{\sqrt{x^{2}+9}} = \bigl[\ln(x+\sqrt{x^{2}+9})\bigr]_{1}^{\infty}=\infty.\quad\text{**발산**.}
+\int_{1}^{\infty}\frac{dx}{\sqrt{x^{2}+9}}
+=\bigl[\ln(x+\sqrt{x^{2}+9})\bigr]_{1}^{\infty}
+=\infty.
 $$
 
-## 문제 15. $p$-급수 판정의 증명
+Therefore the series **diverges**.
 
-$p\ne 1$ 일 때
+### Problem 15. The $p$-Series Test
 
-$$
-\int_{1}^{\infty} x^{-p}\,dx = \Bigl[\tfrac{x^{1-p}}{1-p}\Bigr]_{1}^{\infty}
-= \begin{cases} \dfrac{1}{p-1}, & p>1\;(\text{유한})\\[2pt] \infty, & p<1.\end{cases}
-$$
-
-$p=1$ 인 경우는 $\int_{1}^{\infty} dx/x = \ln x \to\infty$, 즉 발산. 정리하면
+For $p\ne 1$,
 
 $$
-\sum_{n=1}^{\infty}\frac{1}{n^{p}} \;\text{는}\;\;
-\begin{cases}\text{수렴} & p>1\\ \text{발산} & p\le 1.\end{cases}
+\int_{1}^{\infty}x^{-p}\,dx
+=\Bigl[\frac{x^{1-p}}{1-p}\Bigr]_{1}^{\infty}
 $$
 
-## 문제 16. 적분 하한 0의 함정
-
-학생이 사용한 $\displaystyle\int_{0}^{\infty} n^{-2}\,dn$ 은 **하한 $0$** 때문에 $1/n^2$ 의 0 근방 발산이 끼어들어 무한대가 된 것이다. 적분판정은 "꼬리"의 거동만을 보는 것이므로 $f$가 단조감소·양인 임의의 $a>0$ 에서 $\int_{a}^{\infty} f(x)\,dx$ 의 유한성으로 판정해야 한다. 실제로 $\int_{1}^{\infty} x^{-2}dx = 1<\infty$ 이므로 $\sum 1/n^{2}$ 은 수렴한다.
-
-## 문제 17. 가우스형 합 — 더 큰 $e^{-x}$ 와의 비교로 유한 보장
-
-$n\ge 1$ 에서 $n^{2}\ge n$ 이므로 $e^{-n^{2}}\le e^{-n}$. 따라서
+If $p>1$, then $x^{1-p}\to 0$, so
 
 $$
-\int_{1}^{\infty} e^{-x^{2}}\,dx \;\le\; \int_{1}^{\infty} e^{-x}\,dx = e^{-1}<\infty.
+\int_{1}^{\infty}x^{-p}\,dx
+=\frac{1}{p-1}<\infty.
 $$
 
-적분이 유한하므로(즉 그 값을 못 구해도 유한임은 보장) **수렴**.
-
----
-
-## C. 비율판정 (Ratio Test) — 문제 18–30
-
-> $\rho := \lim |a_{n+1}/a_n|$ 이 존재하면 $\rho<1$ 이면 절대수렴, $\rho>1$ 이면 발산, $\rho=1$ 은 판정 불가.
-
-## 문제 18. 지수가 다항을 압도 — 발산
-
-$a_n = 2^{n}/n^{2}$. $\dfrac{a_{n+1}}{a_{n}} = 2\cdot\!\left(\dfrac{n}{n+1}\right)^{2}\to 2>1.$ **발산**.
-
-## 문제 19. 위장된 등비급수 — 공비 $3/4$, 수렴
-
-$\sum 3^{n}/2^{2n} = \sum (3/4)^{n}$, 비율 $3/4<1$. **수렴**.
-
-## 문제 20. 두 배 빠른 계승이 분모 — 수렴
-
-$a_n = n!/(2n)!$. $\dfrac{a_{n+1}}{a_{n}} = \dfrac{n+1}{(2n+1)(2n+2)} = \dfrac{1}{2(2n+1)}\to 0<1.$ **수렴**.
-
-## 문제 21. 지수와 계승 제곱이 결합 — 비율 $5/4$, 발산
-
-$a_n = 5^{n}(n!)^{2}/(2n)!$. $\dfrac{a_{n+1}}{a_{n}} = \dfrac{5(n+1)^{2}}{(2n+1)(2n+2)} = \dfrac{5(n+1)}{2(2n+1)}\to \dfrac{5}{4}>1.$ **발산**.
-
-## 문제 22. 계승의 제곱이 지수를 압도 — 수렴
-
-$a_n = 10^{n}/(n!)^{2}$. $\dfrac{a_{n+1}}{a_{n}} = \dfrac{10}{(n+1)^{2}}\to 0.$ **수렴**.
-
-## 문제 23. 계승이 결국 큰 지수도 압도 — 발산
-
-$a_n = n!/100^{n}$. $\dfrac{a_{n+1}}{a_{n}} = \dfrac{n+1}{100}\to\infty.$ **발산**.
-
-## 문제 24. 위장된 등비급수 — 공비 $9/8>1$, 발산
-
-$\sum 3^{2n}/2^{3n} = \sum (9/8)^{n}$. 등비, $r=9/8>1$. **발산**.
-
-## 문제 25. 계승의 제곱근이 지수를 압도 — 수렴
-
-$a_n = e^{n}/\sqrt{n!}$. $\dfrac{a_{n+1}}{a_{n}} = \dfrac{e}{\sqrt{n+1}}\to 0.$ **수렴**.
-
-## 문제 26. 비율이 $e^{3}/27$ — 1보다 미세하게 작아 수렴
-
-$a_n = (n!)^{3} e^{3n}/(3n)!$. 비율을 계산하면
+If $p<1$, then $x^{1-p}\to\infty$, so the integral diverges. For $p=1$,
 
 $$
-\frac{a_{n+1}}{a_{n}} = \frac{(n+1)^{3}\,e^{3}}{(3n+1)(3n+2)(3n+3)}
-\;\xrightarrow[n\to\infty]{}\; \frac{e^{3}}{27}.
+\int_{1}^{\infty}\frac{dx}{x}=\infty.
 $$
 
-$e^{3}\approx 20.09 < 27$ 이므로 비율 $<1$. **수렴**. (비율이 1보다 약간 작은 미묘한 경계.)
+Therefore $\sum_{n=1}^{\infty}1/n^p$ **converges for $p>1$** and **diverges for $p\le 1$**.
 
-## 문제 27. 큰 다항도 결국 지수에 굴복 — 발산
+### Problem 16. Do Not Start the Integral at 0
 
-$a_n = 100^{n}/n^{200}$. $\dfrac{a_{n+1}}{a_{n}} = 100\!\left(\dfrac{n}{n+1}\right)^{200}\to 100>1.$ **발산**. (다항보다 지수가 결국 압도.)
-
-## 문제 28. 세 종류 계승의 결합 — 비율 $4/27$, 수렴
-
-$a_n = n!(2n)!/(3n)!$. 비율을 계산하면
+The integral test checks the tail of a series, not behavior near 0. The student's integral
 
 $$
-\frac{a_{n+1}}{a_{n}} = \frac{(n+1)(2n+1)(2n+2)}{(3n+1)(3n+2)(3n+3)}
-= \frac{2(n+1)(2n+1)}{3(3n+1)(3n+2)}\;\xrightarrow{}\;\frac{4}{27}<1.
+\int_{0}^{\infty}n^{-2}\,dn
 $$
 
-**수렴**.
-
-## 문제 29. 계승의 제곱근 / 계승 — 비율 $2$, 발산
-
-$a_n = \sqrt{(2n)!}/n!$. 비율은
+is infinite only because $n^{-2}$ blows up near 0. The correct tail integral is
 
 $$
-\frac{a_{n+1}}{a_{n}} = \frac{\sqrt{(2n+1)(2n+2)}}{n+1} = \sqrt{\frac{2(2n+1)}{n+1}}\to\sqrt{4}=2>1.
+\int_{1}^{\infty}x^{-2}\,dx=1<\infty.
 $$
 
-**발산**.
+So $\sum 1/n^{2}$ **converges**.
 
-## 문제 30. 비율판정의 증명
+### Problem 17
 
-**$\rho<1$ 인 경우**: $\rho<\sigma<1$ 이 되도록 $\sigma$ 를 잡으면, 충분히 큰 $n\ge N$ 에서 $|a_{n+1}/a_{n}|<\sigma$. 따라서 $|a_{N+k}|<\sigma^{k}|a_{N}|$ 이고
-
-$$
-\sum_{k=1}^{\infty}|a_{N+k}| < |a_{N}|\sum_{k=1}^{\infty}\sigma^{k} = \frac{\sigma|a_{N}|}{1-\sigma}<\infty,
-$$
-
-즉 $\sum |a_{n}|$ 의 꼬리가 등비급수에 의해 끼어 수렴한다. 절대수렴이므로 본 급수도 수렴.
-
-**$\rho>1$ 인 경우**: $1<\sigma<\rho$ 가 되도록 $\sigma$ 를 잡으면 큰 $n$ 에서 $|a_{n+1}|>\sigma|a_{n}|$, 따라서 $|a_{n}|\ge\sigma^{n-N}|a_{N}|\to\infty$. 일반항이 0으로 가지 않으므로 예비판정에 의해 **발산**.
-
----
-
-## D. 특수 비교판정 (Special Comparison Test) — 문제 31–37
-
-> $a_n/b_n \to L$ ($0<L<\infty$) 이면 $\sum a_n$ 과 $\sum b_n$ 은 같이 수렴하거나 같이 발산.
-
-## 문제 31. 분자가 분모보다 빨리 자라 일반항 자체가 발산
-
-$a_n = (2n+1)(3n-5)/\sqrt{n^{2}-73}$. $b_n = n$ 으로 잡으면
+For $x\ge 1$, $x^{2}\ge x$, so $e^{-x^{2}}\le e^{-x}$. Hence
 
 $$
-\frac{a_n}{b_n} = \frac{(2n+1)(3n-5)}{n\sqrt{n^{2}-73}}\;\xrightarrow[n\to\infty]{}\;\frac{6n^{2}}{n\cdot n}=6.
+\int_{1}^{\infty}e^{-x^{2}}\,dx
+\le \int_{1}^{\infty}e^{-x}\,dx
+=e^{-1}<\infty.
 $$
 
-$\sum n$ 이 발산하므로 **발산**. (사실 일반항이 무한대로 가서 예비판정으로도 발산.)
+Therefore $\sum e^{-n^{2}}$ **converges** by the integral test.
 
-## 문제 32. 조화급수 위계의 유리식 — 발산
+## C. Ratio Test: Problems 18-30
 
-$a_n = n(n+1)/[(n+2)^{2}(n+3)]$, $b_n = 1/n$ 과 비교: $\dfrac{a_n}{1/n} = \dfrac{n^{2}(n+1)}{(n+2)^{2}(n+3)}\to 1$. 조화급수와 같은 거동, **발산**.
+If
 
-## 문제 33. 지수에서 다항을 뺀 분모 — 등비급수 위계, 수렴
+$$
+\rho=\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|,
+$$
 
-$a_n = 1/(2^{n}-n^{2})$, $b_n = 1/2^{n}$ 과 비교: $\dfrac{a_n}{1/2^{n}} = \dfrac{1}{1-n^{2}/2^{n}}\to 1$ ($n^{2}\ll 2^{n}$). 등비급수와 같은 거동, **수렴**.
+then $\rho<1$ gives absolute convergence, $\rho>1$ gives divergence, and $\rho=1$ is inconclusive.
 
-## 문제 34. 분자·분모 차수 차가 2 — $p=2$ 위계, 수렴
+### Problem 18
 
-$a_n = (n^{2}+3n+4)/(n^{4}+7n^{3}+6n-3)$. $b_n = 1/n^{2}$ 과의 비 $\to 1$. $p$-급수 $p=2>1$ 와 같은 거동, **수렴**.
+For $a_n=2^n/n^2$,
 
-## 문제 35. 로그의 영향이 사라지는 $p=2$ 위계 — 수렴
+$$
+\frac{a_{n+1}}{a_n}
+=2\left(\frac{n}{n+1}\right)^2
+\to 2>1.
+$$
 
-$a_n = (n-\ln n)^{2}/(5n^{4}-3n^{2}+1)$. $n-\ln n \sim n$ 이므로 $(n-\ln n)^{2}\sim n^{2}$, $a_n \sim n^{2}/(5n^{4}) = 1/(5n^{2})$. $b_n = 1/n^{2}$ 과의 비 $\to 1/5$. **수렴**.
+Therefore the series **diverges**.
 
-## 문제 36. 유계인 $\sin$ 항을 무시한 $p=1/2$ 위계 — 발산
+### Problem 19
 
-$a_n = \sqrt{n^{3}+5n-1}/(n^{2}-\sin n^{3})$. 분자 $\sim n^{3/2}$, 분모 $\sim n^{2}$ ($\sin n^{3}$ 은 유계). $a_n \sim n^{3/2}/n^{2} = n^{-1/2}$, $b_n = 1/\sqrt n$ 과의 비 $\to 1$. $p=1/2\le 1$ 인 $p$-급수와 같으므로 **발산**.
+Rewrite the series as
 
-## 문제 37. 특수 비교판정의 증명
+$$
+\sum \frac{3^n}{2^{2n}}
+=\sum \left(\frac34\right)^n.
+$$
 
-특수 비교판정은 두 부분으로 나뉜다.
+This is a geometric series with ratio $3/4<1$, so it **converges**.
 
-**(a) 수렴 쪽**: $a_n,b_n>0$, $\sum b_n$ 이 수렴, $\lim a_n/b_n = L$ ($0\le L<\infty$) 이면 $\sum a_n$ 도 수렴.
+### Problem 20
 
-증명: $M>L$ 인 임의의 상수 $M$ 을 잡자. 극한의 정의에 의해 충분히 큰 $n\ge N$ 에서 $a_n/b_n < M$, 즉 $a_n < M b_n$. $\sum b_n$ 이 수렴하므로 $\sum M b_n = M\sum b_n$ 도 수렴. 보통의 비교판정에 의해 $\sum_{n\ge N} a_n \le \sum_{n\ge N} M b_n$ 이 유한하므로 $\sum a_n$ 도 수렴. (앞쪽 유한 개 항은 수렴 여부에 영향이 없다.)
+For $a_n=n!/(2n)!$,
 
-**(b) 발산 쪽**: $a_n,b_n>0$, $\sum b_n$ 이 발산, $\lim a_n/b_n = L$ ($0<L\le \infty$) 이면 $\sum a_n$ 도 발산.
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{n+1}{(2n+1)(2n+2)}
+=\frac{1}{2(2n+1)}
+\to 0.
+$$
 
-증명: 먼저 $0<L<\infty$ 인 경우. $0<m<L$ 인 임의의 상수 $m$ 을 잡으면 충분히 큰 $n\ge N$ 에서 $a_n/b_n > m$, 즉 $a_n > m b_n > 0$. $\sum b_n$ 이 발산하고 $m>0$ 이므로 $\sum m b_n = m\sum b_n$ 도 발산. 보통의 비교판정에 의해 $\sum a_n \ge \sum_{n\ge N} m b_n = \infty$, 따라서 $\sum a_n$ 도 발산.
+Therefore the series **converges**.
 
-$L=\infty$ 인 경우는 더 간단하다. 임의의 큰 상수 $M>0$ 에 대해 충분히 큰 $n\ge N$ 에서 $a_n/b_n > M$, 즉 $a_n > M b_n$. $\sum b_n$ 발산이므로 $\sum M b_n$ 발산, 비교판정으로 $\sum a_n$ 발산.
+### Problem 21
 
-(주의: $L=0$ 일 때는 $\sum a_n$ 의 거동을 결정할 수 없다 — 가령 $b_n=1/n$, $a_n=1/n^{2}$ 이면 $\sum b_n$ 은 발산하지만 $\sum a_n$ 은 수렴. 그래서 (b)의 가설에는 $L>0$ 이 꼭 필요하다.)
+For $a_n=5^n(n!)^2/(2n)!$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{5(n+1)^2}{(2n+1)(2n+2)}
+\to \frac54>1.
+$$
+
+Therefore the series **diverges**.
+
+### Problem 22
+
+For $a_n=10^n/(n!)^2$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{10}{(n+1)^2}
+\to 0.
+$$
+
+Therefore the series **converges**.
+
+### Problem 23
+
+For $a_n=n!/100^n$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{n+1}{100}
+\to \infty.
+$$
+
+Therefore the series **diverges**.
+
+### Problem 24
+
+Rewrite the series as
+
+$$
+\sum \frac{3^{2n}}{2^{3n}}
+=\sum \left(\frac98\right)^n.
+$$
+
+This is a geometric series with ratio $9/8>1$, so it **diverges**.
+
+### Problem 25
+
+For $a_n=e^n/\sqrt{n!}$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{e}{\sqrt{n+1}}
+\to 0.
+$$
+
+Therefore the series **converges**.
+
+### Problem 26
+
+For $a_n=(n!)^{3}e^{3n}/(3n)!$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{(n+1)^3e^3}{(3n+1)(3n+2)(3n+3)}
+\to \frac{e^3}{27}<1.
+$$
+
+Therefore the series **converges**.
+
+### Problem 27
+
+For $a_n=100^n/n^{200}$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=100\left(\frac{n}{n+1}\right)^{200}
+\to 100>1.
+$$
+
+Therefore the series **diverges**.
+
+### Problem 28
+
+For $a_n=n!(2n)!/(3n)!$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{(n+1)(2n+1)(2n+2)}{(3n+1)(3n+2)(3n+3)}
+\to \frac{4}{27}<1.
+$$
+
+Therefore the series **converges**.
+
+### Problem 29
+
+For $a_n=\sqrt{(2n)!}/n!$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{\sqrt{(2n+1)(2n+2)}}{n+1}
+\to 2>1.
+$$
+
+Therefore the series **diverges**.
+
+### Problem 30. Ratio Test
+
+If $\rho<1$, choose $\sigma$ with $\rho<\sigma<1$. For all large $n$,
+
+$$
+|a_{n+1}|<\sigma |a_n|.
+$$
+
+The tail is bounded by a geometric series, so $\sum |a_n|$ converges.
+
+If $\rho>1$, then for all large $n$ the terms grow in absolute value, so $a_n$ does not tend to 0. The series diverges by the preliminary test.
+
+## D. Special Comparison Test: Problems 31-37
+
+If $a_n,b_n>0$ and
+
+$$
+\frac{a_n}{b_n}\to L,\qquad 0<L<\infty,
+$$
+
+then $\sum a_n$ and $\sum b_n$ have the same convergence behavior.
+
+### Problem 31
+
+Let
+
+$$
+a_n=\frac{(2n+1)(3n-5)}{\sqrt{n^2-73}}.
+$$
+
+Compare with $b_n=n$:
+
+$$
+\frac{a_n}{b_n}
+=\frac{(2n+1)(3n-5)}{n\sqrt{n^2-73}}
+\to 6.
+$$
+
+Since $\sum n$ diverges, the given series **diverges**. In fact, $a_n\to\infty$, so the preliminary test also proves divergence.
+
+### Problem 32
+
+Let
+
+$$
+a_n=\frac{n(n+1)}{(n+2)^2(n+3)}.
+$$
+
+Compare with $b_n=1/n$:
+
+$$
+\frac{a_n}{b_n}
+=\frac{n^2(n+1)}{(n+2)^2(n+3)}
+\to 1.
+$$
+
+Since $\sum 1/n$ diverges, the given series **diverges**.
+
+### Problem 33
+
+Let
+
+$$
+a_n=\frac{1}{2^n-n^2}.
+$$
+
+Compare with $b_n=1/2^n$:
+
+$$
+\frac{a_n}{b_n}
+=\frac{1}{1-n^2/2^n}
+\to 1.
+$$
+
+Since $\sum 1/2^n$ converges, the given series **converges**.
+
+### Problem 34
+
+Let
+
+$$
+a_n=\frac{n^2+3n+4}{n^4+7n^3+6n-3}.
+$$
+
+Compare with $b_n=1/n^2$. The highest-degree terms give
+
+$$
+\frac{a_n}{b_n}
+=\frac{n^2(n^2+3n+4)}{n^4+7n^3+6n-3}
+\to 1.
+$$
+
+Since $\sum 1/n^2$ converges, the given series **converges**.
+
+### Problem 35
+
+Since $n-\ln n\sim n$,
+
+$$
+\frac{(n-\ln n)^2}{5n^4-3n^2+1}
+\sim \frac{n^2}{5n^4}
+=\frac{1}{5n^2}.
+$$
+
+Thus the series behaves like $\sum 1/n^2$, so it **converges**.
+
+### Problem 36
+
+Since $\sin n^3$ is bounded,
+
+$$
+\frac{\sqrt{n^3+5n-1}}{n^2-\sin n^3}
+\sim \frac{n^{3/2}}{n^2}
+=\frac{1}{\sqrt n}.
+$$
+
+The comparison series $\sum 1/\sqrt n$ diverges, so the given series **diverges**.
+
+### Problem 37. Special Comparison Test
+
+For convergence: if $\sum b_n$ converges and $a_n/b_n\to L<\infty$, then eventually $a_n\le M b_n$ for some constant $M$. By comparison, $\sum a_n$ converges.
+
+For divergence: if $\sum b_n$ diverges and $a_n/b_n\to L>0$, then eventually $a_n\ge m b_n$ for some constant $m>0$. By comparison, $\sum a_n$ diverges.
+
+The condition $L>0$ is needed for the divergence direction. For example, $a_n=1/n^2$ and $b_n=1/n$ give $a_n/b_n\to 0$, but $\sum a_n$ converges while $\sum b_n$ diverges.

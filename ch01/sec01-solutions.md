@@ -1,193 +1,280 @@
 # 1-1. The Geometric Series
 
-## 문제 1. 튀는 공 (Bouncing ball)
+### Problem 1. Bouncing Ball
 
-본문 예제는 1 m 높이에서 떨어뜨려 매번 직전 높이의 $\tfrac{2}{3}$ 만큼 튀어 오르는 공이다.
+The ball starts 1 m above the floor and rebounds to $\tfrac23$ of its previous height.
 
-**열 번째 튀어 오른 후의 높이**
-
-$$
-h_{10} = \left(\frac{2}{3}\right)^{10} = \frac{1024}{59049} \approx 0.0173 \text{ m}.
-$$
-
-**바닥에 열 번째 닿은 직후까지 이동한 거리**
-
-처음 1 m 떨어진 뒤, $k$번째와 $k+1$번째 충돌 사이에는 $2(2/3)^k$ m를 왕복한다. 그러므로
+**Tenth rebound**
 
 $$
-D_{10} = 1 + 2\sum_{k=1}^{9}\left(\frac{2}{3}\right)^{k}
-       = 1 + 2\cdot\frac{(2/3)\bigl[1-(2/3)^{9}\bigr]}{1-2/3}
-       = 5 - 4\left(\frac{2}{3}\right)^{9}.
+h_{10}=\left(\frac23\right)^{10}
+=\frac{1024}{59049}
+\approx 0.0173\text{ m}.
 $$
 
-$(2/3)^9 = 512/19683 \approx 0.02601$ 이므로 $D_{10} \approx 4.896$ m.
+**Distance through the tenth floor hit**
 
-**총 이동 거리(영원히 튄다고 할 때)**
-
-$$
-D_{\infty} = 1 + 2\sum_{k=1}^{\infty}\left(\frac{2}{3}\right)^{k}
-          = 1 + 2\cdot\frac{2/3}{1-2/3} = 5 \text{ m}.
-$$
-
-따라서 열 번째 충돌 시점까지 이미 전체 거리의 약 $4.896/5 = 97.9\%$를 진행했다.
-
-## 문제 2. 등비급수의 합 공식 유도
-
-$S_n = a + ar + ar^2 + \dots + ar^{n-1}$ 의 양변에 $r$을 곱하면
+After the first 1 m fall, each bounce contributes an up-and-down distance:
 
 $$
-rS_n = ar + ar^2 + \dots + ar^n.
+D_{10}
+=1+2\sum_{k=1}^{9}\left(\frac23\right)^k
+=1+2\cdot\frac{(2/3)\bigl[1-(2/3)^9\bigr]}{1-2/3}
+=5-4\left(\frac23\right)^9.
 $$
 
-두 식을 빼면 $S_n - rS_n = a - ar^n$, 즉
+Since $(2/3)^9\approx 0.02601$,
 
 $$
-\boxed{\,S_n = \dfrac{a(1-r^n)}{1-r}\quad (r\ne 1).}
+D_{10}\approx 4.896\text{ m}.
 $$
 
-$|r|<1$ 이면 $r^n \to 0$이므로
+**Total distance**
 
 $$
-S = \lim_{n\to\infty} S_n = \frac{a}{1-r}.
+D_{\infty}
+=1+2\sum_{k=1}^{\infty}\left(\frac23\right)^k
+=1+2\cdot\frac{2/3}{1-2/3}
+=5\text{ m}.
 $$
 
-반대로 $|r|\ge 1$ 이면 $r^n$이 0으로 가지 않아 발산한다. 따라서 **수렴 ⇔ $|r|<1$** 이고, 이때 합은 식 (1.8) $S=a/(1-r)$로 주어진다.
+By the tenth hit, the ball has traveled about $4.896/5=97.9\%$ of the total distance.
 
-## 순환소수 → 분수 (문제 3–11)
+### Problem 2. Geometric Sum Formula
 
-핵심 아이디어는 등비급수 합 공식이다. 한 가지 통일된 방법: $x$를 정의한 뒤 적절한 10의 거듭제곱을 곱해 빼면 순환부가 소거된다.
-
-### 문제 3. 한 자리 단순 순환마디
-
-$x = 0.\overline{5}$ 에 대하여 $10x - x = 5 \Rightarrow x = \dfrac{5}{9}$.
-
-### 문제 4. 두 자리 단순 순환마디
-
-$x = 0.\overline{81}$ 에 대하여 $100x - x = 81 \Rightarrow x = \dfrac{81}{99} = \dfrac{9}{11}$.
-
-### 문제 5. 혼합 순환소수 — 비순환부 1자리 + 마디 1자리
-
-$x = 0.58\overline{3}$ 에 대하여 $1000x - 100x = 583 - 58 = 525 \Rightarrow x = \dfrac{525}{900} = \dfrac{7}{12}$.
-
-### 문제 6. 혼합 순환소수 — 비순환부 1자리 + 마디 1자리
-
-$x = 0.6\overline{1}$ 에 대하여 $100x - 10x = 61 - 6 = 55 \Rightarrow x = \dfrac{55}{90} = \dfrac{11}{18}$.
-
-### 문제 7. 세 자리 단순 순환마디
-
-$x = 0.\overline{185}$ 에 대하여 $1000x - x = 185 \Rightarrow x = \dfrac{185}{999} = \dfrac{5}{27}$.
-
-### 문제 8. 혼합 순환소수 — 비순환부 2자리 + 마디 1자리
-
-$x = 0.69\overline{4}$ 에 대하여 $10000x - 1000x = 6944 - 694 = 6250 \Rightarrow x = \dfrac{6250}{9000} = \dfrac{25}{36}$.
-
-### 문제 9. $1/7$ 의 여섯 자리 순환마디
-
-$x = 0.\overline{857142}$ 에 대하여 $10^{6}x - x = 857142 \Rightarrow x = \dfrac{857142}{999999} = \dfrac{6}{7}$.
-
-### 문제 10. 여섯 자리 순환마디로 표현된 $15/26$
-
-$x = 0.\overline{576923}$ 에 대하여 $10^{6}x - x = 576923 \Rightarrow x = \dfrac{576923}{999999} = \dfrac{15}{26}$.
-
-(검산: $15/26 = 0.576923\,076923\dots$)
-
-### 문제 11. 혼합 순환소수 — 비순환부 2자리 + $1/7$ 형 마디
-
-$x = 0.67\overline{857142}$ 에 대하여 $10^{8}x - 10^{2}x = 67857142 - 67 = 67857075$. 따라서
+Let
 
 $$
-x = \frac{67857075}{99999900} = \frac{19}{28}.
+S_n=a+ar+ar^2+\cdots+ar^{n-1}.
 $$
 
-(검산: $19/28 = 0.6785714285\dots$)
-
-## 문제 12. 정수(淨水) 공정
-
-매 단계에서 직전 단계에 제거된 양의 $1/n$ 이 제거된다. 처음 불순물을 1로 놓으면 단계별 제거량은
+Multiply by $r$ and subtract:
 
 $$
-\frac{1}{n},\;\frac{1}{n^2},\;\frac{1}{n^3},\;\dots
+rS_n=ar+ar^2+\cdots+ar^n,
 $$
 
-총 제거량은 등비급수
+so
 
 $$
-T = \sum_{k=1}^{\infty}\frac{1}{n^{k}} = \frac{1/n}{1-1/n} = \frac{1}{n-1}.
+S_n-rS_n=a-ar^n.
 $$
 
-- $n=2$: $T=1$, 즉 **이론상 불순물 전부 제거 가능**.
-- $n=3$: $T=1/2$, 따라서 단계 수에 관계없이 **최소 절반의 불순물이 남는다**.
-
-## 문제 13. 매월 적립 투자
-
-월 이율 $0.5\%$, 즉 매달 곱 $r=1.005$. 매월 초에 \$10씩 120회 납입하고, 마지막 납입 후 한 달 뒤(=10년 말)의 가치는
+Therefore
 
 $$
-A = 10\sum_{k=1}^{120}(1.005)^{k}
-   = 10\cdot 1.005\cdot \frac{(1.005)^{120}-1}{0.005}
-   = 2010\bigl[(1.005)^{120}-1\bigr].
+\boxed{S_n=\frac{a(1-r^n)}{1-r}\quad(r\ne 1).}
 $$
 
-$(1.005)^{120} \approx 1.81940$ 이므로
+If $|r|<1$, then $r^n\to 0$, so
 
 $$
-A \approx 2010\times 0.81940 \approx \$1{,}647.
+S=\frac{a}{1-r}.
 $$
 
-(원금은 $\$10\times 120 = \$1{,}200$이므로 이자 약 $\$447$.)
+Thus a geometric series converges exactly when $|r|<1$.
 
-## 문제 14. 발산 급수에 무비판적으로 적용된 공식의 함정
+## Repeating Decimals to Fractions (Problems 3-11)
 
-대상 급수는 $\displaystyle\sum_{n=0}^{\infty}(-5)^{n}$ 이며, 공비 $r=-5$ 로 $|r|=5>1$ 이므로 **이 급수는 발산**한다.
+Use the same method each time: multiply by a power of 10 and subtract to cancel the repeating block.
 
-컴퓨터 프로그램이 출력한 $1/6$ 은 단순히 $a/(1-r) = 1/(1-(-5)) = 1/6$ 공식을 무비판적으로 적용한 결과이다. 수렴 조건 $|r|<1$ 을 검사하지 않은 것이 오류의 원인이며, "결과가 합당한지 항상 확인하라"는 경고가 그대로 적용되는 예이다.
+### Problem 3. One-Digit Repetend
 
-## 문제 15. 시에르핀스키 개스킷 (Sierpiński gasket)
-
-원래 정삼각형의 넓이를 1로 둔다. 각 단계마다 남아 있는 작은 삼각형 하나를 4개로 나눈 뒤 가운데 1개를 비운다.
-
-- **단계 1**: 1개의 빈 삼각형, 넓이 $\dfrac{1}{4}$.
-- **단계 2**: 3개의 빈 삼각형, 각 넓이 $\dfrac{1}{16}$. 합 $\dfrac{3}{16}$.
-- **단계 $n$**: $3^{n-1}$개의 빈 삼각형, 각 넓이 $\dfrac{1}{4^{n}}$. 합 $\dfrac{3^{n-1}}{4^{n}}$.
-
-따라서 비워진 영역의 총 넓이는
+For $x=0.\overline{5}$,
 
 $$
-A_{\text{빈}} = \sum_{n=1}^{\infty}\frac{3^{n-1}}{4^{n}}
-              = \frac{1}{4}\sum_{n=0}^{\infty}\left(\frac{3}{4}\right)^{n}
-              = \frac{1/4}{1-3/4} = 1.
+10x-x=5
+\quad\Rightarrow\quad
+x=\frac59.
 $$
 
-빈 부분의 넓이가 원래 삼각형의 넓이와 같다는 결과는 **남은 부분(시에르핀스키 개스킷 자체)의 넓이가 0**임을 뜻한다. 직선의 "넓이"가 0인 것과 같은 의미에서, 무한히 가는 가지들로만 이루어진 1차원적 프랙탈이기 때문에 자연스럽다.
+### Problem 4. Two-Digit Repetend
 
-## 문제 16. 양 끝에서 일부만 반사되는 입자
-
-$x=0$ 과 $x=1$ 사이에서 입자가 왕복하며 매번 끝점에서 비율 $r$ 만 반사되고 $1-r$ 은 빠져나간다. 모두 $x=0$ 에서 출발해 $x=1$ 방향으로 향한다.
-
-**$x=1$ 에서 빠져나가는 비율**
-
-$x=1$ 에 도착하는 (전체 입자에 대한) 비율은 $1,\,r^2,\,r^4,\dots$ (양 끝에서 한 번씩 반사될 때마다 $r^2$이 곱해진다). 매번 도달분의 $(1-r)$ 이 탈출하므로
+For $x=0.\overline{81}$,
 
 $$
-P_{1} = (1-r)\sum_{k=0}^{\infty} r^{2k} = \frac{1-r}{1-r^{2}} = \frac{1}{1+r}.
+100x-x=81
+\quad\Rightarrow\quad
+x=\frac{81}{99}=\frac9{11}.
 $$
 
-**$x=0$ 에서 빠져나가는 비율**
+### Problem 5. Mixed Repeating Decimal
 
-$x=0$ 에 처음 돌아오는 비율은 $r$, 이후 $r^3,\,r^5,\dots$. 따라서
-
-$$
-P_{0} = (1-r)\sum_{k=0}^{\infty} r^{2k+1} = \frac{(1-r)r}{1-r^{2}} = \frac{r}{1+r}.
-$$
-
-**검산**: $P_0 + P_1 = \dfrac{r+1}{1+r}=1$. (모두 결국 탈출.)
-
-**$x=0$ 에서 탈출할 수 있는 최대 비율**
-
-$f(r)=\dfrac{r}{1+r}=1-\dfrac{1}{1+r}$ 은 $r$ 에 대해 단조증가. $0<r<1$ 의 범위에서
+For $x=0.58\overline{3}$,
 
 $$
-\sup_{0<r<1}\frac{r}{1+r}=\frac{1}{2}\quad(\text{단, } r\to 1\text{일 때 도달})
+1000x-100x=583-58=525
+\quad\Rightarrow\quad
+x=\frac{525}{900}=\frac7{12}.
 $$
 
-이므로 **$x=0$ 에서 탈출하는 입자는 절반보다 적다**(이상적으로 $r$이 1에 가까울수록 1/2에 무한히 접근).
+### Problem 6. Mixed Repeating Decimal
+
+For $x=0.6\overline{1}$,
+
+$$
+100x-10x=61-6=55
+\quad\Rightarrow\quad
+x=\frac{55}{90}=\frac{11}{18}.
+$$
+
+### Problem 7. Three-Digit Repetend
+
+For $x=0.\overline{185}$,
+
+$$
+1000x-x=185
+\quad\Rightarrow\quad
+x=\frac{185}{999}=\frac5{27}.
+$$
+
+### Problem 8. Mixed Repeating Decimal
+
+For $x=0.69\overline{4}$,
+
+$$
+10000x-1000x=6944-694=6250
+\quad\Rightarrow\quad
+x=\frac{6250}{9000}=\frac{25}{36}.
+$$
+
+### Problem 9. Repetend of $1/7$
+
+For $x=0.\overline{857142}$,
+
+$$
+10^6x-x=857142
+\quad\Rightarrow\quad
+x=\frac{857142}{999999}=\frac67.
+$$
+
+### Problem 10. Six-Digit Repetend
+
+For $x=0.\overline{576923}$,
+
+$$
+10^6x-x=576923
+\quad\Rightarrow\quad
+x=\frac{576923}{999999}=\frac{15}{26}.
+$$
+
+### Problem 11. Mixed Repeating Decimal
+
+For $x=0.67\overline{857142}$,
+
+$$
+10^8x-10^2x=67857142-67=67857075,
+$$
+
+so
+
+$$
+x=\frac{67857075}{99999900}=\frac{19}{28}.
+$$
+
+### Problem 12. Water Purification
+
+The removed amounts form
+
+$$
+\frac1n,\;\frac{1}{n^2},\;\frac{1}{n^3},\;\dots
+$$
+
+So the total removed is
+
+$$
+T=\sum_{k=1}^{\infty}\frac{1}{n^k}
+=\frac{1/n}{1-1/n}
+=\frac{1}{n-1}.
+$$
+
+- If $n=2$, then $T=1$: all impurity can be removed in theory.
+- If $n=3$, then $T=1/2$: at least half remains.
+
+### Problem 13. Monthly Investment
+
+The monthly factor is $1.005$. Depositing \$10 at the beginning of each month for 120 months gives
+
+$$
+A=10\sum_{k=1}^{120}(1.005)^k
+=10\cdot 1.005\cdot\frac{(1.005)^{120}-1}{0.005}
+=2010\bigl[(1.005)^{120}-1\bigr].
+$$
+
+Since $(1.005)^{120}\approx 1.81940$,
+
+$$
+A\approx \$1{,}647.
+$$
+
+The principal is $\$1{,}200$, so the interest is about $\$447$.
+
+### Problem 14. Divergent Geometric Series
+
+For
+
+$$
+\sum_{n=0}^{\infty}(-5)^n,
+$$
+
+the ratio is $r=-5$, so $|r|>1$. The series **diverges**.
+
+The value $1/6$ comes from applying $a/(1-r)$ without checking the condition $|r|<1$.
+
+### Problem 15. Sierpiński Gasket
+
+At stage $n$, the removed triangles have total area
+
+$$
+\frac{3^{n-1}}{4^n}.
+$$
+
+Thus the total removed area is
+
+$$
+A_{\text{removed}}
+=\sum_{n=1}^{\infty}\frac{3^{n-1}}{4^n}
+=\frac14\sum_{n=0}^{\infty}\left(\frac34\right)^n
+=1.
+$$
+
+Therefore the remaining Sierpiński gasket has area 0.
+
+### Problem 16. Partially Reflected Particles
+
+At each endpoint, a fraction $r$ reflects and a fraction $1-r$ escapes.
+
+**Escape at $x=1$**
+
+Arrivals at $x=1$ have sizes $1,r^2,r^4,\dots$, so
+
+$$
+P_1=(1-r)\sum_{k=0}^{\infty}r^{2k}
+=\frac{1-r}{1-r^2}
+=\frac{1}{1+r}.
+$$
+
+**Escape at $x=0$**
+
+Returns to $x=0$ have sizes $r,r^3,r^5,\dots$, so
+
+$$
+P_0=(1-r)\sum_{k=0}^{\infty}r^{2k+1}
+=\frac{(1-r)r}{1-r^2}
+=\frac{r}{1+r}.
+$$
+
+Check:
+
+$$
+P_0+P_1=1.
+$$
+
+Since $r/(1+r)$ increases on $0<r<1$,
+
+$$
+\sup_{0<r<1}\frac{r}{1+r}
+=\frac12.
+$$
+
+So less than half of the particles escape at $x=0$, though the fraction can get arbitrarily close to $1/2$.

@@ -1,74 +1,132 @@
 # 1-7. Alternating Series
 
-> **교대급수 판정법(Leibniz)**: $a_n>0$, $\{a_n\}$이 단조감소이며 $a_n\to 0$ 이면 $\sum (-1)^{n}a_n$ 은 수렴.
-> 또한 절대수렴(즉 $\sum |a_n|<\infty$)이면 본 급수는 자동으로 수렴한다(문제 9 참조).
+> **Alternating Series Test**: if $a_n>0$, $a_n$ decreases, and $a_n\to 0$, then $\sum (-1)^n a_n$ converges. Absolute convergence always implies convergence.
 
-## 문제 1. $1/\sqrt{n}$ 위계의 교대급수 — 조건수렴
+### Problem 1. Conditional Convergence
 
-대상은 $\sum (-1)^{n}/\sqrt{n}$. $|a_n|=1/\sqrt{n}\downarrow 0$. 교대급수 판정으로 **수렴**. 다만 $\sum 1/\sqrt{n}$ 은 $p=1/2\le 1$ 의 $p$-급수로 발산하므로 절대수렴은 아니고 **조건수렴**.
+For $\sum (-1)^n/\sqrt n$, the absolute values $1/\sqrt n$ decrease to 0. So the series converges by the alternating series test.
 
-## 문제 2. 분자 지수가 분모 다항을 압도하는 교대급수 — 발산
+But $\sum 1/\sqrt n$ diverges as a $p$-series with $p=1/2$. Therefore the convergence is **conditional**.
 
-대상은 $\sum (-2)^{n}/n^{2}$. $|a_n|=2^{n}/n^{2}\to\infty$. 일반항이 0으로 가지 않으므로 예비판정에 의해 **발산**.
+### Problem 2. Divergence
 
-## 문제 3. $p=2$ 인 교대 $p$-급수 — 절대수렴
-
-대상은 $\sum (-1)^{n}/n^{2}$. $\sum 1/n^{2}$ 이 $p=2>1$ 으로 수렴하므로 **절대수렴**.
-
-## 문제 4. 지수가 계승에 굴복하는 교대급수 — 절대수렴
-
-대상은 $\sum (-3)^{n}/n!$. $\dfrac{|a_{n+1}|}{|a_{n}|} = \dfrac{3}{n+1}\to 0<1$ 이므로 **절대수렴**.
-
-## 문제 5. 역로그형 교대급수 — 조건수렴
-
-대상은 $\sum_{n\ge 2}(-1)^{n}/\ln n$. $|a_n|=1/\ln n\downarrow 0$, 교대급수 판정으로 **수렴**. 한편 $1/\ln n>1/n$ 이므로 $\sum 1/\ln n$ 은 발산. 따라서 **조건수렴**.
-
-## 문제 6. 비가 1로 수렴하는 교대급수 — 발산
-
-대상은 $\sum (-1)^{n} n/(n+5)$. $|a_n|=n/(n+5)\to 1\ne 0$. 예비판정에 의해 **발산**.
-
-## 문제 7. $1/n$ 위계의 교대 유리식 급수 — 조건수렴
-
-대상은 $\sum_{n\ge 0}(-1)^{n} n/(1+n^{2})$. $|a_n|=n/(1+n^{2})\to 0$. 미분 $f(x)=x/(1+x^{2})$ 의 $f'(x)=(1-x^{2})/(1+x^{2})^{2}<0\;(x>1)$ 이므로 큰 $n$에서 단조감소. 교대급수 판정으로 **수렴**. $|a_n|\sim 1/n$ 이므로 $\sum |a_n|$ 은 발산, **조건수렴**.
-
-## 문제 8. 위장된 $1/\sqrt{n}$ 위계의 교대급수 — 조건수렴
-
-대상은 $\sum (-1)^{n}\sqrt{10n}/(n+2)$. $|a_n|=\sqrt{10n}/(n+2)\sim\sqrt{10}/\sqrt{n}\to 0$, 큰 $n$에서 단조감소. **수렴**. $|a_n|\sim 1/\sqrt{n}$ 이므로 절대수렴 아님. **조건수렴**.
-
-## 문제 9. 절대수렴이면 수렴이다 (증명)
-
-힌트대로 $b_n := a_n + |a_n|$ 으로 두면
+For $\sum (-2)^n/n^2$,
 
 $$
-0 \le b_n \le 2|a_n|.
+|a_n|=\frac{2^n}{n^2}\to\infty.
 $$
 
-가정에 의해 $\sum |a_n|<\infty$ 이므로 비교판정으로 양항급수 $\sum b_n$ 도 수렴. 따라서
+The terms do not tend to 0, so the series **diverges**.
+
+### Problem 3. Absolute Convergence
+
+For $\sum (-1)^n/n^2$,
 
 $$
-\sum a_n = \sum (b_n - |a_n|) = \sum b_n - \sum |a_n|
+\sum |a_n|=\sum \frac{1}{n^2}
 $$
 
-은 두 수렴급수의 차로서 수렴. $\square$
+converges. Therefore the series is **absolutely convergent**.
 
-## 문제 10. 단조성이 깨져 교대급수 판정이 적용되지 않는 예
+### Problem 4. Absolute Convergence
 
-(a) $\;\;2 - \tfrac12 + \tfrac23 - \tfrac14 + \tfrac25 - \tfrac16 + \cdots$
-
-홀수번째 항은 $2/(2k-1)$, 짝수번째 항은 $-1/(2k)$. 절댓값 수열은 $2,\tfrac12,\tfrac23,\tfrac14,\tfrac25,\tfrac16,\dots$ 으로 $\tfrac12<\tfrac23$ 처럼 **위·아래로 진동**한다. 단조감소가 아니므로 교대급수 판정 적용 불가. $a_n\to 0$ 임에도 짝씩 묶으면
+For $\sum (-3)^n/n!$,
 
 $$
-\frac{2}{2k-1} - \frac{1}{2k} = \frac{2k+1}{2k(2k-1)} \sim \frac{1}{2k},
+\frac{|a_{n+1}|}{|a_n|}
+=\frac{3}{n+1}
+\to 0.
 $$
 
-조화급수 발산을 통해 발산이 확인된다.
+So the series is **absolutely convergent**.
 
-(b) $\;\;\tfrac{1}{\sqrt{2}}-\tfrac{1}{2}+\tfrac{1}{\sqrt{3}}-\tfrac{1}{3}+\tfrac{1}{\sqrt{4}}-\tfrac{1}{4}+\cdots$
+### Problem 5. Conditional Convergence
 
-절댓값 수열 $\tfrac{1}{\sqrt 2},\tfrac{1}{2},\tfrac{1}{\sqrt 3},\tfrac{1}{3},\dots$ 도 단조감소 아님 ($\tfrac{1}{\sqrt 3}\approx 0.577 > \tfrac{1}{2}=0.5$). 두 항씩 묶으면
+For $\sum_{n\ge 2}(-1)^n/\ln n$, the terms $1/\ln n$ decrease to 0. Thus the series converges by the alternating series test.
+
+It is not absolutely convergent, since $1/\ln n>1/n$ for large $n$. Therefore the convergence is **conditional**.
+
+### Problem 6. Divergence
+
+For $\sum (-1)^n n/(n+5)$,
 
 $$
-\frac{1}{\sqrt{k}} - \frac{1}{k} \sim \frac{1}{\sqrt{k}}\;(k\to\infty),
+|a_n|=\frac{n}{n+5}\to 1.
 $$
 
-$p=1/2$ 의 $p$-급수처럼 **발산**. 단조성 가정이 핵심이며, 그것이 깨지면 일반항이 0으로 가더라도 수렴이 보장되지 않는다.
+The terms do not tend to 0, so the series **diverges**.
+
+### Problem 7. Conditional Convergence
+
+For $\sum_{n\ge 0}(-1)^n n/(1+n^2)$,
+
+$$
+\frac{n}{1+n^2}\to 0,
+\qquad
+\frac{n}{1+n^2}\sim \frac{1}{n}.
+$$
+
+The terms are eventually decreasing, so the alternating series test gives convergence. Since the absolute series behaves like $\sum 1/n$, the convergence is **conditional**.
+
+### Problem 8. Conditional Convergence
+
+For $\sum (-1)^n\sqrt{10n}/(n+2)$,
+
+$$
+\frac{\sqrt{10n}}{n+2}
+\sim \frac{\sqrt{10}}{\sqrt n}
+\to 0.
+$$
+
+The terms are eventually decreasing, so the series converges by the alternating series test. The absolute series behaves like $\sum 1/\sqrt n$, so the convergence is **conditional**.
+
+### Problem 9. Absolute Convergence Implies Convergence
+
+Let $b_n=a_n+|a_n|$. Then
+
+$$
+0\le b_n\le 2|a_n|.
+$$
+
+If $\sum |a_n|$ converges, then $\sum b_n$ also converges by comparison. Hence
+
+$$
+\sum a_n
+=\sum (b_n-|a_n|)
+=\sum b_n-\sum |a_n|
+$$
+
+converges.
+
+### Problem 10. Monotonicity Matters
+
+(a)
+
+$$
+2-\frac12+\frac23-\frac14+\frac25-\frac16+\cdots
+$$
+
+The absolute values are not decreasing: $\frac12<\frac23$. Pairing terms gives
+
+$$
+\frac{2}{2k-1}-\frac{1}{2k}
+=\frac{2k+1}{2k(2k-1)}
+\sim \frac{1}{2k}.
+$$
+
+So the paired series diverges like the harmonic series.
+
+(b)
+
+$$
+\frac{1}{\sqrt2}-\frac12+\frac{1}{\sqrt3}-\frac13+\frac{1}{\sqrt4}-\frac14+\cdots
+$$
+
+Again, the absolute values are not decreasing. Pairing terms gives
+
+$$
+\frac{1}{\sqrt k}-\frac{1}{k}
+\sim \frac{1}{\sqrt k},
+$$
+
+so the series diverges like a $p$-series with $p=1/2$.

@@ -1,103 +1,242 @@
 # 1-9. Useful Facts About Series
 
-> 어떤 판정법이 가장 적절한지 스스로 판단하되, **예비판정**(일반항이 0으로 가는지)을 항상 먼저 살핀다. 양항급수에는 비교/비율/적분/특수비교 판정을, 부호가 섞인 급수에는 절대수렴 또는 교대급수 판정을 적용한다.
+> First check whether the general term tends to 0. Then choose a suitable test: comparison, ratio, integral, special comparison, absolute convergence, or alternating series.
 
-## 문제 1. 분자·분모 차수 차가 1인 유리식 — 조화급수 위계, 발산
-
-대상은 $\sum (n-1)/[(n+2)(n+3)]$. $a_n \sim n/n^{2} = 1/n$. 특수비교판정으로 조화급수와 같은 거동, **발산**.
-
-## 문제 2. 같은 차수 분자/분모 — 일반항이 1로 수렴, 발산
-
-대상은 $\sum (n^{2}-1)/(n^{2}+1)$. $a_n \to 1 \ne 0$. 예비판정으로 **발산**.
-
-## 문제 3. 지수가 $\ln 3$ 인 $p$-급수 — 1을 약간 넘어 수렴
-
-대상은 $\sum 1/n^{\ln 3}$. $\ln 3 \approx 1.099 > 1$, $p$-급수로 **수렴**.
-
-## 문제 4. 분자·분모 차수 차가 1인 유리식 — 발산
-
-대상은 $\sum n^{2}/(n^{3}+4)$. $a_n \sim 1/n$. **발산**.
-
-## 문제 5. 분자·분모 차수 차가 2인 유리식 — $p=2$ 위계, 수렴
-
-대상은 $\sum n/(n^{3}-4)$. $a_n \sim 1/n^{2}$. **수렴**.
-
-## 문제 6. 중심 이항계수의 역수 — 비율 $1/4$, 수렴
-
-대상은 $\sum (n!)^{2}/(2n)! = \sum 1/\binom{2n}{n}$. $\dfrac{a_{n+1}}{a_{n}} = \dfrac{(n+1)^{2}}{(2n+1)(2n+2)} \to \dfrac{1}{4}<1$. **수렴**.
-
-## 문제 7. 중심 이항계수를 $3^{n}$ 으로 나눈 합 — 비율 $4/3$, 발산
-
-대상은 $\sum (2n)!/[3^{n}(n!)^{2}] = \sum \binom{2n}{n}/3^{n}$. $\dfrac{a_{n+1}}{a_{n}} = \dfrac{2(2n+1)}{3(n+1)} \to \dfrac{4}{3}>1$. **발산**. (이항계수가 $4^{n}$ 위계로 자라 $3^{n}$ 을 압도.)
-
-## 문제 8. 지수가 다항을 압도 — 수렴
-
-대상은 $\sum n^{5}/5^{n}$. $\dfrac{a_{n+1}}{a_{n}} = \dfrac{1}{5}\left(\dfrac{n+1}{n}\right)^{5} \to \dfrac{1}{5}<1$. **수렴**.
-
-## 문제 9. $n^{n}$ 이 계승을 압도 — 비율판정에 $e$ 가 등장, 발산
-
-대상은 $\sum n^{n}/n!$. $\dfrac{a_{n+1}}{a_{n}} = \left(1+\dfrac{1}{n}\right)^{n} \to e>1$. **발산**.
-
-## 문제 10. 비가 1로 수렴하는 교대급수 — 발산
-
-대상은 $\sum_{n\ge 2} (-1)^{n} n/(n-1)$. $|a_n| = n/(n-1) \to 1 \ne 0$. **발산**.
-
-## 문제 11. 분자·분모 차수 차가 1 — 조화급수 위계, 발산
-
-대상은 $\sum_{n\ge 4} 2n/(n^{2}-9)$. $a_n \sim 2/n$. **발산**.
-
-## 문제 12. 부분분수로 분해되는 망원급수
-
-대상은 $\sum_{n\ge 2} 1/(n^{2}-n)$. $\dfrac{1}{n(n-1)} = \dfrac{1}{n-1}-\dfrac{1}{n}$, 부분합 $=1-\dfrac{1}{n}\to 1$. **수렴**.
-
-## 문제 13. 분모가 $3/2$ 거듭제곱된 유리식 — $p=2$ 위계, 수렴
-
-대상은 $\sum n/(n^{2}+4)^{3/2}$. $a_n \sim n/n^{3} = 1/n^{2}$. **수렴**.
-
-## 문제 14. 망원급수의 부호 교대 변형 — 절대수렴
-
-대상은 $\sum_{n\ge 2} (-1)^{n}/(n^{2}-n)$. $|a_n|\sim 1/n^{2}$ 이므로 절대수렴, 따라서 **수렴**.
-
-## 문제 15. 계승이 결국 큰 지수도 압도하는 교대급수 — 발산
-
-대상은 $\sum (-1)^{n}\,n!/10^{n}$. 비율 $(n+1)/10 \to \infty$, 따라서 $|a_n|\to\infty$. **발산**.
-
-## 문제 16. 분자가 유계로 진동 — $1/n^{2}$ 와의 비교, 절대수렴
-
-대상은 $\sum (2+(-1)^{n})/(n^{2}+7)$. 분자가 1 또는 3 으로 유계이므로 $|a_n|\le 3/(n^{2}+7)$. $\sum 1/n^{2}$ 과 비교해 **(절대)수렴**.
-
-## 문제 17. 세 배 빠른 계승이 분모 — 비율 $1/27$, 수렴
-
-대상은 $\sum (n!)^{3}/(3n)!$. $\dfrac{a_{n+1}}{a_{n}} = \dfrac{(n+1)^{3}}{(3n+1)(3n+2)(3n+3)} \to \dfrac{1}{27}<1$. **수렴**.
-
-## 문제 18. 지수형 표기를 풀어 $p$-급수로 환원되는 교대급수 — 조건수렴
-
-대상은 $\sum (-1)^{n}/2^{\ln n}$. $2^{\ln n} = n^{\ln 2}$, $\ln 2 \approx 0.693<1$. $|a_n|=1/n^{\ln 2}\downarrow 0$ 이므로 교대급수 판정으로 **수렴**. $\sum 1/n^{\ln 2}$ 은 $p$-급수로 발산하므로 **조건수렴**.
-
-## 문제 19. 두 등비급수의 차로 분해 — 합 $1/3$
-
-대상은 $\dfrac{1}{2^{2}}-\dfrac{1}{3^{2}}+\dfrac{1}{2^{3}}-\dfrac{1}{3^{3}}+\cdots$. $2$의 거듭제곱과 $3$의 거듭제곱을 분리하면 둘 다 절대수렴이므로 분리·합산이 정당화된다.
+### Problem 1. Harmonic Order
 
 $$
-\sum_{k=2}^{\infty}\frac{1}{2^{k}} - \sum_{k=2}^{\infty}\frac{1}{3^{k}}
-= \frac{1/4}{1-1/2} - \frac{1/9}{1-1/3}
-= \frac{1}{2}-\frac{1}{6}=\frac{1}{3}.
+\frac{n-1}{(n+2)(n+3)}\sim \frac{1}{n}.
 $$
 
-**수렴, 합 $=1/3$.**
+So the series **diverges**.
 
-## 문제 20. 두 항씩 짝지으면 교대급수가 되는 합 — 조건수렴
+### Problem 2. Terms Tend to 1
 
-문제의 두 항씩 묶으면 $\displaystyle\sum_{k=2}^{\infty}(-1)^{k}\!\left(\dfrac{1}{k}+\dfrac{1}{k^{2}}\right)$. $|a_k| = 1/k+1/k^{2}\downarrow 0$ 이므로 교대급수 판정으로 **수렴**. (조건수렴 — $\sum 1/k$ 발산.)
+$$
+\frac{n^2-1}{n^2+1}\to 1.
+$$
 
-## 문제 21. 점화식으로 정의된 양항급수 — 비율 $1/2$, 수렴
+The series **diverges**.
 
-점화 $a_{n+1}=\dfrac{n}{2n+3}\,a_{n}$ 에서 비율 $a_{n+1}/a_n \to 1/2 < 1$. **수렴**.
+### Problem 3. $p$-Series
 
-## 문제 22. 밑이 $k$ 인 지수표기를 풀어 $p$-급수로 환원
+$$
+\sum \frac{1}{n^{\ln 3}},
+\qquad
+\ln 3>1.
+$$
 
-대상은 $\sum 1/k^{\ln n}$ 형. $k^{\ln n} = e^{\ln n\,\ln k} = n^{\ln k}$ 이므로 $\sum 1/k^{\ln n} = \sum 1/n^{\ln k}$, $p$-급수.
+So the series **converges**.
 
-(a) $k=3$: $p=\ln 3 \approx 1.099 > 1$, **수렴**.
-(b) $k=2$: $p=\ln 2 \approx 0.693 < 1$, **발산**.
-(c) **수렴 ⇔ $\ln k > 1$, 즉 $k > e \approx 2.718$.** 정수라면 $k\ge 3$.
+### Problem 4. Harmonic Order
+
+$$
+\frac{n^2}{n^3+4}\sim \frac{1}{n}.
+$$
+
+So the series **diverges**.
+
+### Problem 5. $p=2$ Order
+
+$$
+\frac{n}{n^3-4}\sim \frac{1}{n^2}.
+$$
+
+So the series **converges**.
+
+### Problem 6. Ratio Test
+
+For $a_n=(n!)^2/(2n)!$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{(n+1)^2}{(2n+1)(2n+2)}
+\to \frac14.
+$$
+
+The series **converges**.
+
+### Problem 7. Ratio Test
+
+For $a_n=(2n)!/[3^n(n!)^2]$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{2(2n+1)}{3(n+1)}
+\to \frac43.
+$$
+
+The series **diverges**.
+
+### Problem 8. Ratio Test
+
+For $a_n=n^5/5^n$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac15\left(\frac{n+1}{n}\right)^5
+\to \frac15.
+$$
+
+The series **converges**.
+
+### Problem 9. Ratio Test
+
+For $a_n=n^n/n!$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\left(1+\frac{1}{n}\right)^n
+\to e.
+$$
+
+The series **diverges**.
+
+### Problem 10. Terms Do Not Tend to 0
+
+$$
+\left|\frac{(-1)^n n}{n-1}\right|
+=\frac{n}{n-1}
+\to 1.
+$$
+
+The series **diverges**.
+
+### Problem 11. Harmonic Order
+
+$$
+\frac{2n}{n^2-9}\sim \frac{2}{n}.
+$$
+
+So the series **diverges**.
+
+### Problem 12. Telescoping
+
+$$
+\frac{1}{n^2-n}
+=\frac{1}{n(n-1)}
+=\frac{1}{n-1}-\frac{1}{n}.
+$$
+
+The partial sums tend to 1, so the series **converges**.
+
+### Problem 13. $p=2$ Order
+
+$$
+\frac{n}{(n^2+4)^{3/2}}
+\sim \frac{n}{n^3}
+=\frac{1}{n^2}.
+$$
+
+So the series **converges**.
+
+### Problem 14. Absolute Convergence
+
+$$
+\left|\frac{(-1)^n}{n^2-n}\right|
+\sim \frac{1}{n^2}.
+$$
+
+So the series is **absolutely convergent**.
+
+### Problem 15. Terms Grow
+
+For $a_n=(-1)^n n!/10^n$,
+
+$$
+\frac{|a_{n+1}|}{|a_n|}
+=\frac{n+1}{10}
+\to\infty.
+$$
+
+The terms do not tend to 0, so the series **diverges**.
+
+### Problem 16. Compare with $1/n^2$
+
+Since $2+(-1)^n$ is either 1 or 3,
+
+$$
+\left|\frac{2+(-1)^n}{n^2+7}\right|
+\le \frac{3}{n^2+7}
+\le \frac{3}{n^2}.
+$$
+
+The series **converges absolutely**.
+
+### Problem 17. Ratio Test
+
+For $a_n=(n!)^3/(3n)!$,
+
+$$
+\frac{a_{n+1}}{a_n}
+=\frac{(n+1)^3}{(3n+1)(3n+2)(3n+3)}
+\to \frac{1}{27}.
+$$
+
+The series **converges**.
+
+### Problem 18. Alternating $p$-Series
+
+Since
+
+$$
+2^{\ln n}=n^{\ln 2},
+$$
+
+the absolute values are $1/n^{\ln 2}$, where $\ln 2<1$. The alternating series test gives convergence, but the absolute series diverges. Therefore the series is **conditionally convergent**.
+
+### Problem 19. Difference of Geometric Series
+
+$$
+\sum_{k=2}^{\infty}\frac{1}{2^k}
+-\sum_{k=2}^{\infty}\frac{1}{3^k}
+=\frac{1/4}{1-1/2}-\frac{1/9}{1-1/3}
+=\frac12-\frac16
+=\frac13.
+$$
+
+The series **converges**, with sum $1/3$.
+
+### Problem 20. Pair Terms
+
+Pairing the given series gives
+
+$$
+\sum_{k=2}^{\infty}(-1)^k\left(\frac{1}{k}+\frac{1}{k^2}\right).
+$$
+
+The terms decrease to 0, so the alternating series test gives convergence. Since $\sum 1/k$ diverges, the convergence is **conditional**.
+
+### Problem 21. Recursive Ratio
+
+From
+
+$$
+a_{n+1}=\frac{n}{2n+3}a_n,
+$$
+
+we get $a_{n+1}/a_n\to 1/2$. The series **converges**.
+
+### Problem 22. Reduce to a $p$-Series
+
+Use
+
+$$
+k^{\ln n}=e^{\ln k\,\ln n}=n^{\ln k}.
+$$
+
+Thus $\sum 1/k^{\ln n}$ behaves like $\sum 1/n^{\ln k}$.
+
+(a) If $k=3$, then $\ln 3>1$, so the series **converges**.
+
+(b) If $k=2$, then $\ln 2<1$, so the series **diverges**.
+
+(c) The series converges exactly when
+
+$$
+\ln k>1,
+\qquad\text{that is,}\qquad
+k>e.
+$$
+
+For integer $k$, this means $k\ge 3$.
