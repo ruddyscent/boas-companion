@@ -4,9 +4,7 @@
 
 ### Problem 1. Conditional Convergence
 
-For $\sum (-1)^n/\sqrt n$, the absolute values $1/\sqrt n$ decrease to 0. So the series converges by the alternating series test.
-
-But $\sum 1/\sqrt n$ diverges as a $p$-series with $p=1/2$. Therefore the convergence is **conditional**.
+For $\sum (-1)^n/\sqrt n$, the absolute values $1/\sqrt n$ decrease to 0. So the series **converges** by the alternating series test.
 
 ### Problem 2. Divergence
 
@@ -42,9 +40,7 @@ So the series is **absolutely convergent**.
 
 ### Problem 5. Conditional Convergence
 
-For $\sum_{n\ge 2}(-1)^n/\ln n$, the terms $1/\ln n$ decrease to 0. Thus the series converges by the alternating series test.
-
-It is not absolutely convergent, since $1/\ln n>1/n$ for large $n$. Therefore the convergence is **conditional**.
+For $\sum_{n\ge 2}(-1)^n/\ln n$, the terms $1/\ln n$ decrease to 0. Thus the series **converges** by the alternating series test.
 
 ### Problem 6. Divergence
 
@@ -66,7 +62,7 @@ $$
 \frac{n}{1+n^2}\sim \frac{1}{n}.
 $$
 
-The terms are eventually decreasing, so the alternating series test gives convergence. Since the absolute series behaves like $\sum 1/n$, the convergence is **conditional**.
+The terms are eventually decreasing, so the alternating series test gives **convergence**.
 
 ### Problem 8. Conditional Convergence
 
@@ -78,7 +74,7 @@ $$
 \to 0.
 $$
 
-The terms are eventually decreasing, so the series converges by the alternating series test. The absolute series behaves like $\sum 1/\sqrt n$, so the convergence is **conditional**.
+The terms are eventually decreasing, so the series **converges** by the alternating series test.
 
 ### Problem 9. Absolute Convergence Implies Convergence
 
@@ -122,11 +118,8 @@ $$
 \frac{1}{\sqrt2}-\frac12+\frac{1}{\sqrt3}-\frac13+\frac{1}{\sqrt4}-\frac14+\cdots
 $$
 
-Again, the absolute values are not decreasing. Pairing terms gives
+Again, the alternating series test does not apply because the positive magnitudes are not decreasing; for example,
 
 $$
-\frac{1}{\sqrt k}-\frac{1}{k}
-\sim \frac{1}{\sqrt k},
+\frac12<\frac{1}{\sqrt3}.
 $$
-
-so the series diverges like a $p$-series with $p=1/2$.
