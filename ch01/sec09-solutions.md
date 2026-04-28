@@ -238,5 +238,3 @@ $$
 \qquad\text{that is,}\qquad
 k>e.
 $$
-
-For integer $k$, this means $k\ge 3$.
