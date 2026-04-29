@@ -1,0 +1,6 @@
+repos:
+  - repo: https://github.com/AnswerDotAI/nbdev
+    rev: 3.0.15  # Check the latest tag from GitHub releases before updating.
+    hooks:
+      - id: nbdev-clean
+#      - id: nbdev-export

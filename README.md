@@ -4,6 +4,16 @@ This repository contains companion notes for M. L. Boas, *Mathematical Methods i
 
 The project is intended to collect original solution writeups, section summaries, computational checks, and code for reproducing plots or numerical examples.
 
+## Development Setup
+
+Run once after cloning:
+
+```sh
+uv tool install nbdev pre-commit
+nbdev_install_hooks
+pre-commit install
+```
+
 ## Source
 
 ![Alt text: Book cover of Mathematical Methods in the Physical Sciences, third edition, by Mary L. Boas, with a vector field diagram on a magenta and blue background.
@@ -29,4 +39,3 @@ Unless otherwise noted:
 - Source code, including plotting and computational scripts, is licensed under the MIT License. See [LICENSES/MIT.txt](LICENSES/MIT.txt).
 
 Files containing third-party material, including textbook cover images, are excluded from these licenses unless an explicit notice says otherwise.
-
