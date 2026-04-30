@@ -4,15 +4,15 @@ This repository contains companion notes for M. L. Boas, *Mathematical Methods i
 
 The project is intended to collect original solution writeups, section summaries, computational checks, and code for reproducing plots or numerical examples.
 
-## Development Setup
+## Status
 
-Run once after cloning:
+Chapter 1 sections 1.1 through 1.11 have been checked. Later sections are draft material and may still need verification, revision, or additional computational checks.
 
-```sh
-uv tool install nbdev pre-commit
-nbdev_install_hooks
-pre-commit install
-```
+## Contents
+
+- `ch01/`: companion notes and solution writeups for Chapter 1.
+- `img/`: supporting images used by this README and companion notes.
+- `LICENSES/`: full license texts for original prose and source code.
 
 ## Source
 
@@ -39,3 +39,13 @@ Unless otherwise noted:
 - Source code, including plotting and computational scripts, is licensed under the MIT License. See [LICENSES/MIT.txt](LICENSES/MIT.txt).
 
 Files containing third-party material, including textbook cover images, are excluded from these licenses unless an explicit notice says otherwise.
+
+## Development Setup
+
+Run once after cloning:
+
+```sh
+uv tool install nbdev pre-commit
+nbdev_install_hooks
+pre-commit install
+```
