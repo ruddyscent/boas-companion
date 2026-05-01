@@ -1,0 +1,15 @@
+services:
+  notebook:
+    image: quay.io/jupyter/scipy-notebook:python-3.13.13
+    container_name: boas-companion
+    working_dir: /home/jovyan/work
+    ports:
+      - "127.0.0.1:${NOTEBOOK_PORT:-8888}:8888"
+    volumes:
+      - .:/home/jovyan/work
+    command:
+      - start-notebook.py
+      - --ServerApp.root_dir=/home/jovyan/work
+      - --ServerApp.token=${NOTEBOOK_TOKEN:-boas}
+      - --ServerApp.password=
+      - --ServerApp.open_browser=False
