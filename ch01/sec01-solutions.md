@@ -74,7 +74,7 @@ $$
 
 Thus a geometric series converges exactly when $|r|<1$.
 
-## Repeating Decimals to Fractions (Problems 3-11)
+## Repeating Decimals to Fractions (Problems 3 through 11)
 
 Use the same method each time: multiply by a power of 10 and subtract to cancel the repeating block.
 

@@ -7,7 +7,7 @@ This section uses four tests:
 - **Ratio Test**
 - **Special Comparison Test**
 
-## A. Comparison Test: Problems 1-6
+## A. Comparison Test: Problems 1 through 6
 
 ### Problem 1. Factorials Eventually Dominate Powers of 2
 
@@ -104,7 +104,7 @@ $$
 
 Infinitely many blocks each contribute at least $9/10$, so the harmonic series **diverges**.
 
-## B. Integral Test: Problems 7-17
+## B. Integral Test: Problems 7 through 17
 
 For a positive decreasing function $f$, the series $\sum f(n)$ and the improper integral $\int f(x)\,dx$ have the same convergence behavior.
 
@@ -254,7 +254,7 @@ $$
 
 Therefore $\sum e^{-n^{2}}$ **converges** by the integral test.
 
-## C. Ratio Test: Problems 18-30
+## C. Ratio Test: Problems 18 through 30
 
 If
 
@@ -419,7 +419,7 @@ The tail is bounded by a geometric series, so $\sum |a_n|$ converges.
 
 If $\rho>1$, then for all large $n$ the terms grow in absolute value, so $a_n$ does not tend to 0. The series diverges by the preliminary test.
 
-## D. Special Comparison Test: Problems 31-37
+## D. Special Comparison Test: Problems 31 through 37
 
 If $a_n,b_n>0$ and
 
