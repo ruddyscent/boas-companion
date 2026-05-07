@@ -6,7 +6,7 @@ The project is intended to collect original solution writeups, section summaries
 
 ## Status
 
-Chapter 1 sections 1.1 through 1.12 have been checked. Later sections are draft material and may still need verification, revision, or additional computational checks.
+Chapter 1 sections 1.1 through 1.13 have been checked. Later sections are draft material and may still need verification, revision, or additional computational checks.
 
 ## Contents
 
