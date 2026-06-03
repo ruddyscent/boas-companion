@@ -1,19 +1,20 @@
 # Boas Companion
 
-This repository contains companion notes for M. L. Boas, *Mathematical Methods in the Physical Sciences*, 3rd ed., Wiley, 2005.
+This repository contains companion notebooks for M. L. Boas, *Mathematical Methods in the Physical Sciences*, 3rd ed., Wiley, 2005.
 
-The project is intended to collect original solution writeups, section summaries, computational checks, and code for reproducing plots or numerical examples.
+The project is intended to collect original solution writeups, section summaries, computational checks, and code for reproducing plots or numerical examples in Jupyter notebooks.
 
 ## Status
 
-Chapter 1 sections 1.1 through 1.13 have been checked. Later sections are draft material and may still need verification, revision, or additional computational checks.
+Chapter 1 sections 1.1 through 1.16 are available as notebooks. Sections 1.1 through 1.13 have been checked; sections 1.14 through 1.16 are draft material and may still need verification, revision, or additional computational checks.
 
 ## Contents
 
-- `ch01/`: companion notes and solution writeups for Chapter 1.
+- `ch01/`: section-specific solution notebooks for Chapter 1, named `sec01.ipynb` through `sec16.ipynb`.
+- `ch04/`: section-specific solution notebooks for Chapter 4, currently `sec01.ipynb`.
 - `compose.yaml`: Docker Compose service for running JupyterLab.
 - `.env.example`: example local notebook port and token settings.
-- `img/`: supporting images used by this README and companion notes.
+- `img/`: supporting images used by this README and companion notebooks.
 - `LICENSES/`: full license texts for original prose and source code.
 
 ## Running Notebooks
@@ -39,10 +40,10 @@ Start JupyterLab:
 docker compose up
 ```
 
-Open the Section 13 notebook:
+Open any Chapter 1 notebook. For example, Section 13 is:
 
 ```text
-http://127.0.0.1:8888/lab/tree/ch01/sec13-solutions.ipynb?token=boas
+http://127.0.0.1:8888/lab/tree/ch01/sec13.ipynb?token=boas
 ```
 
 If you change `NOTEBOOK_PORT` or `NOTEBOOK_TOKEN`, update the URL accordingly.
