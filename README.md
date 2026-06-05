@@ -6,12 +6,12 @@ The project is intended to collect original solution writeups, section summaries
 
 ## Status
 
-Chapter 1 sections 1.1 through 1.16 are available as notebooks. Sections 1.1 through 1.13 have been checked; sections 1.14 through 1.16 are draft material and may still need verification, revision, or additional computational checks.
+Solutions for the all problems in Chapter 1 and Chapter 4 are available as notebooks. However, only sections 1.1 through 1.13 and 4.1 have been verified; the remaining notebooks are drafts and may still need verification, revision, or additional computational checks.
 
 ## Contents
 
 - `ch01/`: section-specific solution notebooks for Chapter 1, named `sec01.ipynb` through `sec16.ipynb`.
-- `ch04/`: section-specific solution notebooks for Chapter 4, currently `sec01.ipynb`.
+- `ch04/`: section-specific solution notebooks for Chapter 4, named `sec01.ipynb` through `sec13.ipynb`.
 - `compose.yaml`: Docker Compose service for running JupyterLab.
 - `.env.example`: example local notebook port and token settings.
 - `img/`: supporting images used by this README and companion notebooks.
