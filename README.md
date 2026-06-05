@@ -6,12 +6,13 @@ The project is intended to collect original solution writeups, section summaries
 
 ## Status
 
-Solutions for all problems in Chapters 1, 2, and 4 are available as notebooks. However, only sections 1.1 through 1.13 and 4.1 have been verified; the Chapter 2 notebooks and remaining Chapter 4 notebooks are drafts and may still need verification, revision, or additional computational checks.
+Solutions for all problems in Chapters 1, 2, 3, and 4 are available as notebooks. However, only sections 1.1 through 1.13 and 4.1 have been verified; all the other notebooks are drafts and may still need verification, revision, or additional computational checks.
 
 ## Contents
 
 - `ch01/`: section-specific solution notebooks for Chapter 1, named `sec01.ipynb` through `sec16.ipynb`.
 - `ch02/`: section-specific solution notebooks for Chapter 2, named `sec01.ipynb` through `sec17.ipynb`.
+- `ch03/`: section-specific solution notebooks for Chapter 3, named `sec01.ipynb` through `sec15.ipynb`.
 - `ch04/`: section-specific solution notebooks for Chapter 4, named `sec01.ipynb` through `sec13.ipynb`.
 - `compose.yaml`: Docker Compose service for running JupyterLab.
 - `.env.example`: example local notebook port and token settings.
@@ -41,10 +42,10 @@ Start JupyterLab:
 docker compose up
 ```
 
-Open any notebook. For example, Chapter 2 Section 10 is:
+Open any notebook. For example, Chapter 3 Section 11 is:
 
 ```text
-http://127.0.0.1:8888/lab/tree/ch02/sec10.ipynb?token=boas
+http://127.0.0.1:8888/lab/tree/ch03/sec11.ipynb?token=boas
 ```
 
 If you change `NOTEBOOK_PORT` or `NOTEBOOK_TOKEN`, update the URL accordingly.
